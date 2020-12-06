@@ -5,7 +5,7 @@ COPY src /usr/src/app/src
 USER root
 RUN chown -R quarkus /usr/src/app
 USER quarkus
-RUN mvn -f /usr/src/app/pom.xml -Pnative -Dquarkus.native.additional-build-args=--static  clean package
+RUN mvn -f /usr/src/app/pom.xml -Pnative -Dquarkus.native.additional-build-args=--static clean package
 RUN chmod 777 /usr/src/app/target/*-runner
 
 ## Stage 2 : create the docker final image
